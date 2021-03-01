@@ -17,7 +17,7 @@ function getAllEmployees (){
                 <tr>
                     <td>${employee.name}</td>
                     <td>${employee.department}</td>
-                    // <td>${employee.salary}</td>
+                    <td>${employee.salary}</td>
                 <tr>`
             })
             // console.log(JSON.parse(this.responseText));
