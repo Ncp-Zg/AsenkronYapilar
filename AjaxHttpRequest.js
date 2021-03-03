@@ -121,6 +121,26 @@ class Request {
         this.xhr.send(JSON.stringify(data));
 
     }
+
+    delete(url,callback){
+
+        this.xhr.open("DELETE",url); // Bağlantı açık
+        
+        this.xhr.onload = () => {
+
+            // console.log(this);
+            if(this.xhr.status === 200) {
+                callback(null,"Veri Sİlme İşlemi Başarılı"); // İsteğimiz bitti
+            }
+            else {
+                // Hata Durumu
+                callback("Delete Request : Bir hata oluştu",null);
+            }
+        };
+
+
+        this.xhr.send();
+    }
 }
 
 const request = new Request();
@@ -162,13 +182,24 @@ const request = new Request();
 // })
 
 
-request.put("https://jsonplaceholder.typicode.com/albums/10",{userId:143,title:"asdasdasd"},function(err,album){
+// request.put("https://jsonplaceholder.typicode.com/albums/10",{userId:143,title:"asdasdasd"},function(err,album){
     
-        if(err === null){
-            console.log(album);
-        }
-        else {
-            //Hata
-            console.log(err);
-        }
-})
+//         if(err === null){
+//             console.log(album);
+//         }
+//         else {
+//             //Hata
+//             console.log(err);
+//         }
+// })
+
+request.delete("https://jsonplaceholder.typicode.com/albums/10",function(err,response){
+    if(err === null){
+        // Başarılı
+        console.log(response);
+    }
+    else {
+        // Hata
+        console.log(err);
+    }
+});
