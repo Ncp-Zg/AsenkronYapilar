@@ -28,39 +28,39 @@
 
 // // test("Merhaba").then(response => console.log(response));
 
-// async function testData(data) {
-//     let promise = new Promise((resolve,reject) => {
-//         setTimeout(()=> {
-//             if(typeof data === "string") {
-//                 resolve(data);
-//             }
-//             else {
-//                 reject(new Error("Lütfen string bir değer girin"));
-//             }
-//         },5000);
-//     });
+async function testData(data) {
+    let promise = new Promise((resolve,reject) => {
+        setTimeout(()=> {
+            if(typeof data === "string") {
+                resolve(data);
+            }
+            else {
+                reject(new Error("Lütfen string bir değer girin"));
+            }
+        },5000);
+    });
 
-//     const response = await promise;
+    const response = await promise;
 
-//     return response;
-// }
-
-// testData(44).then(data => console.log(data))
-// .catch(err => console.log(err));
-
-
-async function getCurrency(url){
-
-    const response = await fetch(url); // Response objesi
-    // console.log(response);
-
-
-    const data = await response.json(); // Json objesi
-
-
-    return data;
-
+    return response;
 }
 
-getCurrency("https://api.exchangeratesapi.io/latest")
-.then(ahmet => console.log(ahmet));
+testData(44).then(data => console.log(data))
+.catch(err => console.log(err));
+
+
+// async function getCurrency(url){
+
+//     const response = await fetch(url); // Response objesi
+//     // console.log(response);
+
+
+//     const data = await response.json(); // Json objesi
+
+
+//     return data;
+
+// }
+
+// getCurrency("https://api.exchangeratesapi.io/latest")
+// .then(ahmet => console.log(ahmet));
